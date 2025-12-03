@@ -1,10 +1,10 @@
 servlets\Registro.class
 logica\Usuario.class
+servlets\DatosUsuario.class
 datos\UsuarioDAO.class
-servlets\CompraServlet.class
-datos\CompraDAO.class
-servlets\ProductosServlet.class
-servlets\Agregar.class
 datos\Conexion.class
-datos\ProductoDAO.class
+datos\AnimalDAO.class
+logica\Persona.class
+servlets\AnimalesServlet.class
+logica\Animal.class
 servlets\Ingresar.class

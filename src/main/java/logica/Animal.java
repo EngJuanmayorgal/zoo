@@ -5,7 +5,7 @@ public class Animal {
     private String nombre, especie, zona, dieta, descripcion, imagenURL;
     private int idAnimal;
 
-    public Animal(String nombre, String especie, String zona, String dieta, String descripcion, String imagenURL, int idProducto) {
+    public Animal(String nombre, String especie, String zona, String dieta, String descripcion, String imagenURL, int idAnimal) {
         this.nombre = nombre;
         this.especie = especie;
         this.zona = zona;
@@ -70,5 +70,4 @@ public class Animal {
     public void setImagenURL(String imagenURL) {
         this.imagenURL = imagenURL;
     }
-
 }

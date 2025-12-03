@@ -1,11 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.*, logica.Producto, logica.Usuario" %>
+<%@page import="java.util.*, logica.Animal, logica.Usuario" %>
 <%@page session="true" %>
 <%
-
     if ("true".equals(request.getParameter("logout"))) {
         session.invalidate();
-        response.sendRedirect("index.jsp"); 
+        response.sendRedirect("index.jsp");
         return;
     }
 %>
@@ -17,7 +16,7 @@
         <title>Panel del Usuario</title>
         <link rel="stylesheet" href="css/usuario.css">
     </head>
-    <body style="background-image: url(images/fondozoo1.png);
+    <body style="background-image: url(images/fondozoo1.jpg);
           background-size: cover;">
         <div class="contenedor-principal">
             <header style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/Fondos\ De\ Plantas.jpg); background-size: cover;">
@@ -25,34 +24,21 @@
                 <body data-usuario-id="<%= session.getAttribute("usuarioId") %>">
                 <nav>
                     <button onclick="mostrar('perfil')">Mi perfil</button>
-                    <button onclick="mostrar('animales')">Ver Animales</button>
+                    <button onclick="mostrar('productos')">Ver Animales</button>
                     <button onclick="location.href = 'usuario.jsp?logout=true'">Cerrar sesión</button>
                 </nav>
             </header>
 
             <main style="display: flex">
                 <section id="perfil" class="contenido oculto"></section>
-                <section id="compras" class="contenido oculto">
-                    <div id="contenedor-compras" class="productos-grid"></div>
-
-                    <!-- Modal para vista ampliada -->
-                    <div id="modalCompra" class="modal">
-                        <div class="modal-contenido">
-                            <span class="cerrar" onclick="cerrarModalCompra()">&times;</span>
-                            <img id="modal-img1" src="" alt="Imagen del producto">
-                            <h3 id="modal-nombre1"></h3>
-                            <p id="modal-descripcion1"></p>
-                            <p id="modal-precio1"></p>
-                        </div>
-                    </div>
-                </section>
+                
                 <section id="productos" class="contenido oculto">
                     <nav class="submenu">
                         <button onclick="filtrar('todas')">Todas</button>
                         <button onclick="filtrar('africa')">Africa</button>
                         <button onclick="filtrar('amazonas')">Amazonas</button>
                         <button onclick="filtrar('asia')">Asia</button>
-                        <button onclick="filtrar('artico')">Artico/Antatico</button>
+                        <button onclick="filtrar('artico')">Artico/Antartico</button>
                     </nav>
                     <div id="contenedor-productos" class="productos-grid"></div>
 
@@ -68,22 +54,9 @@
                             <p id="modal-descripcion-animal"></p>
                         </div>
                     </div>
-
-                <!--- </section>
-                <section id="carrito" class="carrito-overlay oculto">
-                    <div class="carrito-contenido">
-                        <span class="cerrar-carrito" onclick="ocultarCarrito()">×</span>
-                        <h2>Carrito de Compras</h2>
-                        <ul id="lista-carrito"></ul>
-                        <div class="carrito-footer">
-                            <button onclick="finalizarCompra()">Finalizar Compra</button>
-                        </div>
-                    </div>
-                </section> --->
-
-
+                </section>
             </main>
         </div>
-        <script src="usuario.js" ></script>
+        <script src="usuario.js"></script>
     </body>
 </html>
