@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body
-        style="background-image: url(images/fondo1.jpg);"
+        style="background-image: url(images/fondozoo2.png);"
         >
         <div class="login-container">
             <h1>Iniciar Sesión</h1><% String error = request.getParameter("error"); %>
