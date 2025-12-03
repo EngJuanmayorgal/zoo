@@ -74,6 +74,54 @@ INSERT INTO `productos` VALUES (1,'Colnago C-68','bicicletas','una bici muy rapi
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+
+CREATE TABLE animales (
+    id_animal INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    especie VARCHAR(100) NOT NULL,
+    zona VARCHAR(50) NOT NULL, -- 'africa', 'amazonas', 'asia', 'artico'
+    dieta VARCHAR(50), -- 'carnivoro', 'herbivoro', 'omnivoro'
+    descripcion TEXT,
+    imagen_url VARCHAR(255)
+);
+
+-- Insertar datos de ejemplo (África)
+INSERT INTO animales (nombre, especie, zona, dieta, descripcion, imagen_url) VALUES
+('León', 'Panthera leo', 'africa', 'carnivoro', 'El rey de la sabana, vive en manadas', 'images/animales/leon.jpg'),
+('Elefante', 'Loxodonta africana', 'africa', 'herbivoro', 'El animal terrestre más grande', 'images/animales/elefante.jpg'),
+('Jirafa', 'Giraffa camelopardalis', 'africa', 'herbivoro', 'El animal más alto del mundo', 'images/animales/jirafa.jpg'),
+('Cebra', 'Equus quagga', 'africa', 'herbivoro', 'Reconocida por sus rayas únicas', 'images/animales/cebra.jpg'),
+('Rinoceronte', 'Diceros bicornis', 'africa', 'herbivoro', 'Animal en peligro de extinción', 'images/animales/rinoceronte.jpg'),
+('Guepardo', 'Acinonyx jubatus', 'africa', 'carnivoro', 'El animal terrestre más rápido', 'images/animales/guepardo.jpg');
+
+-- Amazonas
+INSERT INTO animales (nombre, especie, zona, dieta, descripcion, imagen_url) VALUES
+('Jaguar', 'Panthera onca', 'amazonas', 'carnivoro', 'El felino más grande de América', 'images/animales/jaguar.jpg'),
+('Anaconda', 'Eunectes murinus', 'amazonas', 'carnivoro', 'Una de las serpientes más grandes', 'images/animales/anaconda.jpg'),
+('Tucán', 'Ramphastos toco', 'amazonas', 'omnivoro', 'Ave con pico grande y colorido', 'images/animales/tucan.jpg'),
+('Perezoso', 'Bradypus variegatus', 'amazonas', 'herbivoro', 'Conocido por su lentitud', 'images/animales/perezoso.jpg'),
+('Capibara', 'Hydrochoerus hydrochaeris', 'amazonas', 'herbivoro', 'El roedor más grande del mundo', 'images/animales/capibara.jpg'),
+('Mono Araña', 'Ateles geoffroyi', 'amazonas', 'omnivoro', 'Primate muy ágil', 'images/animales/mono.jpg');
+
+-- Asia
+INSERT INTO animales (nombre, especie, zona, dieta, descripcion, imagen_url) VALUES
+('Tigre', 'Panthera tigris', 'asia', 'carnivoro', 'El felino más grande del mundo', 'images/animales/tigre.jpg'),
+('Panda', 'Ailuropoda melanoleuca', 'asia', 'herbivoro', 'Se alimenta principalmente de bambú', 'images/animales/panda.jpg'),
+('Orangután', 'Pongo pygmaeus', 'asia', 'omnivoro', 'Gran simio de Borneo y Sumatra', 'images/animales/orangutan.jpg'),
+('Elefante Asiático', 'Elephas maximus', 'asia', 'herbivoro', 'Más pequeño que el africano', 'images/animales/elefante_asiatico.jpg'),
+('Oso Pardo', 'Ursus arctos', 'asia', 'omnivoro', 'Hiberna en invierno', 'images/animales/oso_pardo.jpg'),
+('Leopardo de las Nieves', 'Panthera uncia', 'asia', 'carnivoro', 'Vive en las montañas', 'images/animales/leopardo_nieve.jpg');
+
+-- Ártico
+INSERT INTO animales (nombre, especie, zona, dieta, descripcion, imagen_url) VALUES
+('Oso Polar', 'Ursus maritimus', 'artico', 'carnivoro', 'Excelente nadador, vive en el hielo', 'images/animales/oso_polar.jpg'),
+('Pingüino Emperador', 'Aptenodytes forsteri', 'artico', 'carnivoro', 'El pingüino más grande', 'images/animales/pinguino.jpg'),
+('Foca', 'Phoca vitulina', 'artico', 'carnivoro', 'Mamífero marino adaptado al frío', 'images/animales/foca.jpg'),
+('Zorro Ártico', 'Vulpes lagopus', 'artico', 'carnivoro', 'Pelaje blanco en invierno', 'images/animales/zorro_artico.jpg'),
+('Morsa', 'Odobenus rosmarus', 'artico', 'carnivoro', 'Reconocible por sus colmillos', 'images/animales/morsa.jpg'),
+('Reno', 'Rangifer tarandus', 'artico', 'herbivoro', 'Animal migratorio del ártico', 'images/animales/reno.jpg');
+
 --
 -- Table structure for table `usuarios`
 --

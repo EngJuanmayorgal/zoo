@@ -24,7 +24,7 @@
         }
     </script>
 </head>
-<body style="background-image: url(images/fondo1.jpg);">
+<body style="background-image: url(images/fondozoo2.png);">
     <div class="login-container">
         <form class="formulario-login" action="RegistroServlet" method="post" onsubmit="return validarCorreo();">
             <h2>Registro de Usuario</h2>

@@ -3,11 +3,8 @@ logica\Usuario.class
 datos\UsuarioDAO.class
 servlets\CompraServlet.class
 datos\CompraDAO.class
-logica\Persona.class
 servlets\ProductosServlet.class
-logica\Producto.class
 servlets\Agregar.class
-servlets\DatosUsuario.class
 datos\Conexion.class
 datos\ProductoDAO.class
 servlets\Ingresar.class

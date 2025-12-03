@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class Conexion {
 
     /** Nombre de la base de datos utilizada */
-    static String dbName = "colnagostore";
+    static String dbName = "Zologico";
 
     /** URL base para la conexión JDBC */
     static String url = "jdbc:mysql://localhost:3306/";

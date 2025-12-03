@@ -1,6 +1,6 @@
 mostrar('productos');
 function mostrar(seccionId) {
-    // Ocultar secciones
+    // Ocultar todas las secciones
     document.querySelectorAll('.contenido').forEach(s => {
         s.classList.remove('activo');
         s.classList.add('oculto');
@@ -13,17 +13,12 @@ function mostrar(seccionId) {
 
     // Marcar botón activo
     document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('activo'));
-    const boton = Array.from(document.querySelectorAll('nav button')).find(b => b.textContent.toLowerCase().includes(seccionId));
-    if (boton)
-        boton.classList.add('activo');
 
-    // Cargar contenido dinámico
+    // Cargar contenido según la sección
     if (seccionId === 'perfil') {
         cargarPerfil();
-    } else if (seccionId === 'compras') {
-        cargarCompras();
-    } else if (seccionId === 'productos') {
-        filtrar("todas");
+    } else if (seccionId === 'animales') {
+        filtrarAnimales("todas");
     }
 }
 
@@ -35,7 +30,7 @@ function cargarPerfil() {
             });
 }
 
-function cargarCompras() {
+/* function cargarCompras() {
     fetch(`CompraServlet?usuarioId=${parseInt(document.body.dataset.usuarioId)}`)
             .then(res => res.json())
             .then(data => renderCompras(data));
@@ -68,66 +63,66 @@ function mostrarModalCompra(producto) {
 
 function cerrarModalCompra() {
     document.getElementById("modalCompra").classList.remove("mostrar");
-}
+} */
 
-let productos = [];
+let animales = [];
 
-cargarTodosLosProductos();
+cargarTodosLosAnimales();
 
-async function cargarTodosLosProductos() {
+async function cargarTodosLosAnimales() {
     try {
-        const res = await fetch("ProductosServlet?tipo=todas");
-        productos = await res.json();
-        console.log("Productos cargados:", productos);
+        const res = await fetch("AnimalesServlet?zona=todas");
+        animales = await res.json();
+        console.log("Animales cargados:", animales);
     } catch (error) {
-        console.error("Error al cargar los productos:", error);
+        console.error("Error al cargar los animales:", error);
     }
 }
 
-function mostrarModalProducto(producto) {
-    document.getElementById("modal-img").src = producto.imagen;
-    document.getElementById("modal-nombre").textContent = producto.nombre;
-    document.getElementById("modal-descripcion").textContent = producto.descripcion;
-    document.getElementById("modal-precio").textContent = producto.precio;
+function mostrarModalAnimal(anima) {
+    document.getElementById("modal-img").src = animal.imagen;
+    document.getElementById("modal-nombre").textContent = animal.nombre;
+    document.getElementById("modal-descripcion").textContent = animal.descripcion;
+    /* document.getElementById("modal-precio").textContent = producto.precio; */
     document.getElementById("modalProducto").classList.add("mostrar");
-    document.getElementById("modalProducto").dataset.productoId = producto.id;
+    /*document.getElementById("modalProducto").dataset.productoId = producto.id;*/
 }
 
-function renderProductos(productos) {
-    const contenedor = document.getElementById('contenedor-productos');
+function renderAnimales(animales) {
+    const contenedor = document.getElementById('contenedor-animales');
     contenedor.innerHTML = '';
-    productos.forEach(p => {
+    animales.forEach(animal => {
         const card = document.createElement("div");
         card.classList.add("card-producto");
-        card.onclick = () => mostrarModalProducto(p);
+        card.onclick = () => mostrarModalAnimal(animal);
 
         card.innerHTML = `
-            <img src="${p.imagen}" alt="${p.nombre}">
-            <h4>${p.nombre}</h4>
+            <img src="${animal.imagen}" alt="${animal.nombre}">
+            <h4>${animal.nombre}</h4>
         `;
         contenedor.appendChild(card);
     });
 }
 
-function cerrarModal() {
-    document.getElementById("modalProducto").classList.remove("mostrar");
+function cerrarModalAnimal() {
+    document.getElementById("modalAnimal").classList.remove("mostrar");
 }
 
-function agregarAlCarritoDesdeModal() {
+/* function agregarAlCarritoDesdeModal() {
     const id = parseInt(document.getElementById("modalProducto").dataset.productoId);
     const producto = productos.find(p => p.id === id);
     cerrarModal();
     agregarAlCarrito(producto);
-}
+} */
 
-function filtrar(tipo) {
-    fetch(`ProductosServlet?tipo=${tipo}`)
+function filtrar(zona) {
+    fetch(`AnimalsServlet?zona=${zona}`)
             .then(res => res.json())
-            .then(productos => renderProductos(productos));
+            .then(animales => renderAnimales(animales));
 }
 
 // Carrito
-let carrito = [];
+/* let carrito = [];
 
 function agregarAlCarrito(producto) {
     carrito.push(producto);
@@ -175,5 +170,5 @@ function finalizarCompra() {
     actualizarCarrito();
     alert("¡Compra finalizada con éxito!");
     ocultarCarrito();
-}
+} */
 

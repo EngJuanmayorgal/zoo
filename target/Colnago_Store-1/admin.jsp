@@ -52,7 +52,7 @@
                             <p id="modal-descripcion"></p>
                             <p id="modal-precio"></p>
                             <button onclick="agregarEditarDesdeModal()">Editar</button>
-                            <button onclick="eliminarProducto()">Eliminar</button>  
+                            <button onclick="eliminarProducto()">Eliminar</button>
                         </div>
                     </div>
 
