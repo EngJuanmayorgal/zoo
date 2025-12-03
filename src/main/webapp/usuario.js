@@ -1,4 +1,5 @@
 // Cargar la sección de productos al inicio
+console.log("Iniciando la aplicación...");
 mostrar('productos');
 
 function mostrar(seccionId) {
@@ -66,7 +67,6 @@ function renderAnimales(animales) {
         card.innerHTML = `
             <img src="${animal.imagenUrl}" alt="${animal.nombre}" onerror="this.src='images/no-image.jpg'">
             <h4>${animal.nombre}</h4>
-            <p>${animal.especie}</p>
         `;
         contenedor.appendChild(card);
     });

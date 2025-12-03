@@ -15,9 +15,14 @@ public class AnimalDAO {
     private PreparedStatement pst;
     private ResultSet rs;
 
+    public AnimalDAO() {
+        con = null;
+        pst = null;
+        rs = null;
+    }
+
     public List<Animal> obtenerAnimalesPorZona(String zona) {
         List<Animal> animales = new ArrayList<>();
-
         try {
             con = Conexion.connection();
 

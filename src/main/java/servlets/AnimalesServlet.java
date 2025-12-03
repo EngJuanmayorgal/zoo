@@ -24,7 +24,6 @@ public class AnimalesServlet extends HttpServlet {
 
         String zona = request.getParameter("zona");
         List<Animal> animales = new AnimalDAO().obtenerAnimalesPorZona(zona);
-
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 

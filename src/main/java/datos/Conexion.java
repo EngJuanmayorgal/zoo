@@ -9,12 +9,7 @@ public class Conexion {
     /**
      * Nombre de la base de datos utilizada
      */
-<<<<<<< HEAD
     static String dbName = "zoologico";
-=======
-    static String dbName = "Zoologico";
->>>>>>> ef4677c10ccb0dabb580995b1c7c32b6d32f9913
-
     /**
      * URL base para la conexión JDBC
      */
@@ -66,10 +61,6 @@ public class Conexion {
             }
             db = DriverManager.getConnection(url + dbName, user, pass);
         } catch (SQLException ex) {
-<<<<<<< HEAD
-=======
-            System.out.println("no funca x2");
->>>>>>> ef4677c10ccb0dabb580995b1c7c32b6d32f9913
         }
         return db;
     }

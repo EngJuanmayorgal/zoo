@@ -5,6 +5,9 @@ public class Animal {
     private String nombre, especie, zona, dieta, descripcion, imagenURL;
     private int idAnimal;
 
+    public Animal() {
+    }
+
     public Animal(String nombre, String especie, String zona, String dieta, String descripcion, String imagenURL, int idAnimal) {
         this.nombre = nombre;
         this.especie = especie;
