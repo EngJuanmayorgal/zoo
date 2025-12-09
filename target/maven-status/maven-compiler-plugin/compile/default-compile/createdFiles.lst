@@ -1,10 +1,15 @@
 servlets\Registro.class
+Factory\AnimalAsia.class
 logica\Usuario.class
-servlets\DatosUsuario.class
 datos\UsuarioDAO.class
-datos\Conexion.class
 datos\AnimalDAO.class
 logica\Persona.class
 servlets\AnimalesServlet.class
+servlets\DatosUsuario.class
+datos\Conexion.class
+Factory\AnimalAmazonas.class
+Factory\AnimalArtico.class
+Factory\AnimalFactory.class
 logica\Animal.class
 servlets\Ingresar.class
+Factory\AnimalAfrica.class
