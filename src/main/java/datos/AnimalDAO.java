@@ -24,7 +24,7 @@ public class AnimalDAO {
     public List<Animal> obtenerAnimalesPorZona(String zona) {
         List<Animal> animales = new ArrayList<>();
         try {
-            con = Conexion.connection();
+            con = Conexion.getInstancia().getConnection();
 
             String sql;
             if ("todas".equals(zona)) {

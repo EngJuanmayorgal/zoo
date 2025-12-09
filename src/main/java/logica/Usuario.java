@@ -1,8 +1,7 @@
-
 package logica;
 
 public class Usuario extends Persona {
-    
+
     private String nRegistro;
 
     public Usuario(String nRegistro, int idUser, String name, int nId, String email, String role) {
@@ -18,6 +17,4 @@ public class Usuario extends Persona {
         this.nRegistro = nRegistro;
     }
 
-   
-    
 }
