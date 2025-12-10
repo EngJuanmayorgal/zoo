@@ -29,15 +29,7 @@ Se utiliza para modelar el comportamiento cambiante de la alimentación según l
 | **Concrete Strategies** | `AlimentacionCarnivora`, `AlimentacionHerbivora`, `AlimentacionOmnivora` | Implementan el algoritmo de cálculo de raciones y tipo de comida. | **OCP:** Se pueden añadir nuevas dietas creando nuevas clases sin alterar el código existente. |
 | **Context** | `GestorAlimentacion.java` | Instancia y ejecuta la estrategia adecuada en tiempo de ejecución. | Su responsabilidad es gestionar la estrategia, no implementarla. |
 
-### 2. Patrón Data Access Object (DAO)
-
-Aísla la lógica de acceso a datos de la lógica de negocio.
-
-| Componente | Clase(s) | Propósito | Justificación Clave |
-| :--- | :--- | :--- | :--- |
-| **DAO** | `AnimalDAO.java`, `UsuarioDAO.java` | Abstraen las operaciones CRUD (SQL/JDBC). | **SRP y Mantenibilidad:** Permite cambiar el motor de base de datos o el framework de persistencia modificando solo estas clases. |
-
-### 3. Patrón Singleton
+### 2. Patrón Singleton
 
 Garantiza que la clase de conexión tenga una única instancia.
 
