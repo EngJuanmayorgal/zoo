@@ -71,4 +71,35 @@ public class AnimalDAO {
 
         return animales;
     }
+    
+    public Animal animalPorId(int id){
+        String consulta = "SELECT * FROM animales WHERE id_animal = '" + id + "'";
+        System.out.println("lll");
+        try {
+            con = Conexion.getInstancia().getConnection();
+            pst = con.prepareStatement(consulta);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                Animal animal = new Animal(
+                        rs.getString("nombre"),
+                        rs.getString("especie"),
+                        rs.getString("zona"),
+                        rs.getString("dieta"),
+                        rs.getString("descripcion"),
+                        rs.getString("imagen_url"),
+                        rs.getInt("id_animal")
+                );
+                pst.close();
+                Conexion.disconnected();
+                return animal;
+            } else {
+                pst.close();
+                Conexion.disconnected();
+                return null;
+            }
+        } catch (SQLException ex) {
+            return null;
+        }
+        
+    }
 }

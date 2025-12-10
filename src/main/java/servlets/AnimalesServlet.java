@@ -1,5 +1,6 @@
 package servlets;
 
+import Alimentacion.GestorAlimentacion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -28,12 +29,13 @@ public class AnimalesServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         PrintWriter out = response.getWriter();
-
         out.print("[");
         for (int i = 0; i < animales.size(); i++) {
             Animal a = animales.get(i);
+            GestorAlimentacion estrategiaA = GestorAlimentacion.crearPara(a);
             out.print("{");
             out.print("\"id\":" + a.getIdAnimal() + ",");
+            out.print("\"estrategia\":\"" + escapar(estrategiaA.obtenerInfoEstrategia(a)) + "\",");
             out.print("\"nombre\":\"" + escapar(a.getNombre()) + "\",");
             out.print("\"especie\":\"" + escapar(a.getEspecie()) + "\",");
             out.print("\"zona\":\"" + escapar(a.getZona()) + "\",");
@@ -54,7 +56,7 @@ public class AnimalesServlet extends HttpServlet {
             return "";
         }
         return texto.replace("\"", "\\\"")
-                .replace("\n", "")
+                .replace("\n", "<br>")
                 .replace("\r", "")
                 .replace("\\", "\\\\");
     }
@@ -62,5 +64,15 @@ public class AnimalesServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Servlet para manejar animales del zoo por zonas";
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String id = request.getParameter("id");
+        Animal animal = new AnimalDAO().animalPorId(Integer.parseInt(id));
+        GestorAlimentacion estrategiaA = GestorAlimentacion.crearPara(animal);
+        String lo = estrategiaA.ejecutarAlimentacion(animal);
     }
 }

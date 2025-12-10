@@ -1,6 +1,6 @@
 // Cargar la sección de productos al inicio
 console.log("Iniciando la aplicación...");
-mostrar('productos');
+mostrar('animales');
 
 function mostrar(seccionId) {
     // Ocultar todas las secciones
@@ -17,7 +17,7 @@ function mostrar(seccionId) {
     // Cargar contenido según la sección
     if (seccionId === 'perfil') {
         cargarPerfil();
-    } else if (seccionId === 'productos') {
+    } else if (seccionId === 'animales') {
         filtrar('todas');
     }
 }

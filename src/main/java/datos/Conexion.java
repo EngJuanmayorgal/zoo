@@ -87,7 +87,6 @@ public class Conexion {
             if (conexion == null || conexion.isClosed()) {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 conexion = DriverManager.getConnection(url + dbName, user, pass);
-                System.out.println("Reconexión a BD realizada");
             }
         } catch (SQLException | ClassNotFoundException e) {
             System.err.println("Error en getConnection()");

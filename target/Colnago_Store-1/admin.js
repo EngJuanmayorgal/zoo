@@ -33,8 +33,8 @@ function mostrar(seccionId) {
         cargarPerfil();
     } else if (seccionId === 'eliminados') {
         cargarEliminados();
-    } else if (seccionId === 'productos') {
-        fetch(`ProductosServlet?tipo=${"todas"}`)
+    } else if (seccionId === 'animales') {
+        fetch(`AnimalesServlet?zona=${"todas"}`)
                 .then(res => res.json())
                 .then(productos => renderProductos(productos));
     }
