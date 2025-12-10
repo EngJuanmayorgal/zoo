@@ -60,7 +60,7 @@ function renderAnimales(animales) {
         card.onclick = () => mostrarModalAnimal(animal);
 
         card.innerHTML = `
-            <img src="${animal.imagenUrl}" alt="${animal.nombre}" onerror="this.src='images/no-image.jpg'">
+            <img src="${animal.imagenUrl}" alt="${animal.nombre}" onerror="this.src='images/default.png'">
             <h4>${animal.nombre}</h4>
         `;
         contenedor.appendChild(card);
@@ -70,6 +70,7 @@ function renderAnimales(animales) {
 // Función para mostrar el modal con los detalles del animal
 function mostrarModalAnimal(animal) {
     document.getElementById("modal-img-animal").src = animal.imagenUrl;
+    console.log(animal.imagenUrl);
     document.getElementById("modal-nombre-animal").textContent = animal.nombre;
     document.getElementById("modal-especie").textContent = animal.especie;
     document.getElementById("modal-zona").textContent = animal.zona;

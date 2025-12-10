@@ -1,6 +1,6 @@
 package Alimentacion;
 
-import logica.Animal;
+import Factory.Animal;
 
 public class AlimentacionOmnivora implements EstrategiaAlimentacion {
 

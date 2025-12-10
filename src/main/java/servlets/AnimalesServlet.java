@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import datos.AnimalDAO;
-import logica.Animal;
+import Factory.Animal;
 
 @WebServlet(name = "AnimalesServlet", urlPatterns = {"/AnimalesServlet"})
 @MultipartConfig

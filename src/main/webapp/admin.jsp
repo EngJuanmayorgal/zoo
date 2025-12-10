@@ -93,44 +93,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <!-- Modal de creación -->
-                            <div id="modalProductoAgregar" class="modal">
-                                <div class="modal-contenido">
-                                    <span class="cerrar" onclick="cerrarModalAgregar()">&times;</span>
-                                    <h3 id="modal-titulo">Agregar Producto</h3>
-                                    <form id="producto" action="AgregarServlet" method="post"
-                                        enctype="multipart/form-data">
-                                        <label>Nombre:</label>
-                                        <input type="text" id="Agregar-nombre" name="Agregar-nombre"
-                                            placeholder="Nombre" required>
-                                        <label for="tipo">Tipo:</label>
-                                        <select name="tipo" id="tipo" required>
-                                            <option value="">Selecciona un tipo</option>
-                                            <option value="bicicletas">Bicicleta</option>
-                                            <option value="accesorios">Accesorio</option>
-                                            <option value="vestimenta">Vestimenta</option>
-                                        </select>
-                                        <label>Descripción:</label>
-                                        <textarea id="Agregar-descripcion" name="Agregar-descripcion"
-                                            placehAgregar-descripcionolder="Descripción" required></textarea>
-
-                                        <label>Precio:</label>
-                                        <input type="text" id="Agregar-precio" name="Agregar-precio"
-                                            placeholder="Precio" required>
-
-                                        <!-- Imagen -->
-                                        <label for="imagen-file" style="cursor: pointer;">
-                                            <img id="preview" src="images/default.png" alt="Vista previa"
-                                                style="width: 200px; display: block; margin: 10px auto;">
-                                        </label>
-                                        <input type="file" id="imagen-file" name="imagen-file" accept="image/*"
-                                            style="display: none;">
-
-                                        <button type="submit">Guardar</button>
-                                    </form>
-                                </div>
-                            </div>
-
+                           
                         </div>
                         <script>
                             document.addEventListener("DOMContentLoaded", function () {

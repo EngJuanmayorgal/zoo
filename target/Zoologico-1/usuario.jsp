@@ -46,7 +46,7 @@
                                 <div id="modalAnimal" class="modal">
                                     <div class="modal-contenido">
                                         <span class="cerrar" onclick="cerrarModalAnimal()">&times;</span>
-                                        <img id="modal-img-animal" src="" alt="Imagen del animal">
+                                        <img id="modal-img-animal" src="" alt="Imagen del animal" onerror="this.src='images/default.png'">
                                         <h3 id="modal-nombre-animal"></h3>
                                         <p><strong>Especie:</strong> <span id="modal-especie"></span></p>
                                         <p><strong>Zona:</strong> <span id="modal-zona"></span></p>

@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import logica.Animal;
+import Factory.Animal;
+import Factory.AnimalFactory;
+import Factory.IAnimalFactory;
 
 public class AnimalDAO {
 
@@ -39,15 +41,21 @@ public class AnimalDAO {
             rs = pst.executeQuery();
 
             while (rs.next()) {
-                Animal animal = new Animal(
-                        rs.getString("nombre"),
-                        rs.getString("especie"),
-                        rs.getString("zona"),
-                        rs.getString("dieta"),
-                        rs.getString("descripcion"),
-                        rs.getString("imagen_url"),
-                        rs.getInt("id_animal")
-                );
+                String nombre = rs.getString("nombre");
+                String especie = rs.getString("especie");
+                String zonaBD = rs.getString("zona");
+
+                String dieta = rs.getString("dieta");
+                String descripcion = rs.getString("descripcion");
+                String imagenURL = rs.getString("imagen_url");
+
+                int id = rs.getInt("id_animal");
+                // Obtener la fábrica correspondiente
+                IAnimalFactory factory = AnimalFactory.getFactory(zonaBD);
+
+                // Crear el animal con la fábrica: la fábrica rellenará los defaults si dieta/desc/img son nulls
+                Animal animal = factory.createAnimal(nombre, especie, id, dieta, descripcion, imagenURL);
+
                 animales.add(animal);
             }
 
@@ -71,8 +79,8 @@ public class AnimalDAO {
 
         return animales;
     }
-    
-    public Animal animalPorId(int id){
+
+    public Animal animalPorId(int id) {
         String consulta = "SELECT * FROM animales WHERE id_animal = '" + id + "'";
         System.out.println("lll");
         try {
@@ -100,6 +108,6 @@ public class AnimalDAO {
         } catch (SQLException ex) {
             return null;
         }
-        
+
     }
 }

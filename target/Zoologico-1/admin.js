@@ -52,7 +52,6 @@ async function cargarTodosLosAnimales() {
     }
 }
 
-// Función para mostrar el modal con los detalles del animal
 function mostrarModalAnimal(animal) {
     document.getElementById("modal-img-animal").src = animal.imagenUrl;
     document.getElementById("modal-nombre-animal").textContent = animal.nombre;
@@ -78,7 +77,6 @@ function renderProductos(animales) {
     });
 }
 
-// Función para cerrar el modal
 function cerrarModalAnimal() {
     document.getElementById("modalAnimal").classList.remove("mostrar");
 }
@@ -132,36 +130,4 @@ function alimentarAnimal() {
         });
 }
 
-function mostrarFormularioNuevo() {
-    document.getElementById("modal-titulo").textContent = "Nuevo Producto";
-    document.getElementById("producto").reset();
-    document.getElementById("imagen-file").value = "";
-    document.getElementById("modalProductoAgregar").classList.add("mostrar");
-}
-function cerrarModalAgregar() {
-    document.getElementById("modalProductoAgregar").classList.remove("mostrar");
-}
 
-function cargarEliminados() {
-    fetch("AgregarServlet")
-        .then(res => res.json())
-        .then(productos => {
-            const contenedor = document.getElementById("contenedor-eliminados");
-            contenedor.innerHTML = "";
-            productos.forEach(p => {
-                const card = document.createElement("div");
-                card.classList.add("card-producto");
-                card.innerHTML = `
-                    <img src="${p.imagen}" alt="${p.nombre}">
-                    <h4>${p.nombre}</h4>
-                    <button onclick='restaurarProducto(${p.id})'>Restaurar</button>
-                `;
-                contenedor.appendChild(card);
-            });
-        });
-}
-
-function restaurarProducto(id) {
-    fetch(`AgregarServlet?accion=restaurar&id=${id}`, { method: "POST" })
-        .then(() => cargarEliminados());
-}

@@ -5,11 +5,12 @@ datos\UsuarioDAO.class
 datos\AnimalDAO.class
 logica\Persona.class
 servlets\AnimalesServlet.class
+Factory\Animal.class
 servlets\DatosUsuario.class
+Factory\IAnimalFactory.class
 datos\Conexion.class
 Factory\AnimalAmazonas.class
 Factory\AnimalArtico.class
 Factory\AnimalFactory.class
-logica\Animal.class
 servlets\Ingresar.class
 Factory\AnimalAfrica.class

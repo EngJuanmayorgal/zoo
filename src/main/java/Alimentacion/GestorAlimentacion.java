@@ -1,6 +1,6 @@
 package Alimentacion;
 
-import logica.Animal;
+import Factory.Animal;
 
 public class GestorAlimentacion {
 
@@ -22,19 +22,22 @@ public class GestorAlimentacion {
         }
         return estrategia.alimentar(animal);
     }
-
     // Gestor segun dieta del animal
     public static GestorAlimentacion crearPara(Animal animal) {
+        System.out.println("llll");
         EstrategiaAlimentacion estrategia;
         String dieta = animal.getDieta().toLowerCase();
         switch (dieta) {
             case "carnivoro":
+            case "carnívoro":
                 estrategia = new AlimentacionCarnivora();
                 break;
             case "herbivoro":
+            case "herbívoro":
                 estrategia = new AlimentacionHerbivora();
                 break;
             case "omnivoro":
+            case "omnívoro":
                 estrategia = new AlimentacionOmnivora();
                 break;
             default:
