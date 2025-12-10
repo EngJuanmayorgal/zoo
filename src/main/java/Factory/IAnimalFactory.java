@@ -8,5 +8,7 @@ public interface IAnimalFactory {
             String dieta,
             String descripcion,
             String imagenURL);
+    
+    String DietaPorEspecie(String especie);
 
 }

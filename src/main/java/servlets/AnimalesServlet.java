@@ -69,10 +69,29 @@ public class AnimalesServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        String accion = request.getParameter("accion");
+        if (accion.equalsIgnoreCase("alimentar")) {
+            String id = request.getParameter("id");
+            Alimentar(id);
+        } else if (accion.equalsIgnoreCase("editar")) {
+            String idStr = request.getParameter("prod-id");
+            String nombre = request.getParameter("prod-nombre");
+            String descripcion = request.getParameter("prod-descripcion");
+            boolean actualizado = new AnimalDAO().actualizarAnimal(idStr, nombre, descripcion);
+            if (actualizado) {
+                response.sendRedirect("admin.jsp?msg=ok");
+            } else {
+                response.sendRedirect("admin.jsp?msg=error");
+            }
+        }
+    }
 
-        String id = request.getParameter("id");
+    private void Alimentar(String id) {
         Animal animal = new AnimalDAO().animalPorId(Integer.parseInt(id));
         GestorAlimentacion estrategiaA = GestorAlimentacion.crearPara(animal);
-        String lo = estrategiaA.ejecutarAlimentacion(animal);
+        System.out.println(estrategiaA.ejecutarAlimentacion(animal));
+        
     }
+
 }

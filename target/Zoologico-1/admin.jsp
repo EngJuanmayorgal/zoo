@@ -30,9 +30,6 @@
                             <main style="display: flex">
                                 <section id="perfil" class="contenido oculto"></section>
                                 <section id="animales" class="contenido oculto">
-                                    <nav class="submenu">
-                                        <button onclick="mostrarFormularioNuevo()">Agregar producto</button>
-                                    </nav>
                                     <div id="contenedor-productos" class="productos-grid"></div>
 
 
@@ -70,7 +67,7 @@
                                 <div class="modal-contenido">
                                     <span class="cerrar" onclick="cerrarModalEditar()">&times;</span>
                                     <h3 id="modal-titulo">Editar Animal</h3>
-                                    <form id="form-producto" action="ProductosServlet" method="post"
+                                    <form id="form-producto" action="AnimalesServlet?accion=editar" method="post"
                                         enctype="multipart/form-data">
                                         <input type="hidden" id="prod-id" name="prod-id">
 

@@ -21,7 +21,8 @@ public class AnimalAmazonas implements IAnimalFactory {
         return new Animal(nombre, especie, zona, finalDieta, finalDescripcion, finalImagen, id);
     }
     
-    private String DietaPorEspecie(String especie) {
+    @Override
+    public String DietaPorEspecie(String especie) {
         if (especie == null) {
             return "Omnívoro";
         }

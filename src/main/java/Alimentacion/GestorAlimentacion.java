@@ -24,7 +24,6 @@ public class GestorAlimentacion {
     }
     // Gestor segun dieta del animal
     public static GestorAlimentacion crearPara(Animal animal) {
-        System.out.println("llll");
         EstrategiaAlimentacion estrategia;
         String dieta = animal.getDieta().toLowerCase();
         switch (dieta) {

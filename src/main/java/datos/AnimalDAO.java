@@ -82,7 +82,6 @@ public class AnimalDAO {
 
     public Animal animalPorId(int id) {
         String consulta = "SELECT * FROM animales WHERE id_animal = '" + id + "'";
-        System.out.println("lll");
         try {
             con = Conexion.getInstancia().getConnection();
             pst = con.prepareStatement(consulta);
@@ -109,5 +108,22 @@ public class AnimalDAO {
             return null;
         }
 
+    }
+
+    public boolean actualizarAnimal(String id, String nombre, String descripcion) {
+        String sql = "UPDATE animales SET nombre=?, descripcion=? WHERE id_animal=?";
+
+        try {
+            Connection con = Conexion.getInstancia().getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ps.setString(2, descripcion);
+            ps.setString(3, id);
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            System.out.println("Error actualizando animal: " + e.getMessage());
+        }
+        return false;
     }
 }

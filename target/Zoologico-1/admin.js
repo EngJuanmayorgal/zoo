@@ -123,6 +123,7 @@ function alimentarAnimal() {
     fetch(`AnimalesServlet?accion=alimentar&id=${id}`, { method: "POST" })
         .then(() => {
             alert("El animal ha sido alimentado.");
+            cerrarModalAlimentar();
         })
         .catch(error => {
             console.error("Error al alimentar al animal:", error);

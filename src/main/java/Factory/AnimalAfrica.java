@@ -23,7 +23,8 @@ public class AnimalAfrica implements IAnimalFactory {
 
     }
 
-    private String DietaPorEspecie(String especie) {
+    @Override
+    public String DietaPorEspecie(String especie) {
         if (especie == null) {
             return "Omnívoro";
         }
