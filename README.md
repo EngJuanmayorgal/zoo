@@ -1,4 +1,4 @@
-# 📚 Proyecto Final - Gestión de Zoológico con Patrones de Diseño (Java Web)
+# 📚 Proyecto Final - Gestión de Zoológico con Patrones de Diseño
 
 ## 🌟 Resumen del Proyecto
 
@@ -13,11 +13,10 @@ El sistema permite la autenticación de usuarios (administradores y cuidadores),
 * **Tecnologías Web:** Servlets, JSP (JavaServer Pages)
 * **Base de Datos:** MySQL
 * **Acceso a Datos:** JDBC (Java Database Connectivity)
-* **Diagramación:** PlantUML (para la documentación)
 
 ## 🏗️ Arquitectura y Patrones de Diseño Implementados
 
-El proyecto se estructura bajo el patrón **MVC** y se adhiere a los principios de **Separación de Responsabilidades (SRP)** y **Abierto/Cerrado (OCP)** gracias a la implementación de los siguientes patrones de diseño GoF:
+El proyecto se estructura bajo el patrón **MVC** y se adhiere a los principios de **Separación de Responsabilidades** y **Abierto/Cerrado** gracias a la implementación de los siguientes patrones de diseño GoF:
 
 ### 1. Patrón Strategy (Estrategia)
 
