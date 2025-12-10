@@ -18,7 +18,17 @@ El sistema permite la autenticación de usuarios (administradores y cuidadores),
 
 El proyecto se estructura bajo el patrón **MVC** y se adhiere a los principios de **Separación de Responsabilidades** y **Abierto/Cerrado** gracias a la implementación de los siguientes patrones de diseño GoF:
 
-### 1. Patrón Strategy (Estrategia)
+### 1. Patrón Factory Method (Fábrica) - Patrón Crecional
+
+Se utiliza para delegar la lógica de creación de la clase `Animal` a clases especializadas por zona, asegurando que cada animal se inicialice con las propiedades por defecto (dieta, descripción, imagen URL) correctas para su entorno.
+
+| Componente | Clase(s) | Rol en el Patrón | Justificación Clave |
+| :--- | :--- | :--- | :--- |
+| **Creator Interface** | `IAnimalFactory.java` | Declara el método de fábrica (`createAnimal`). | Abstrae el proceso de creación. |
+| **Concrete Creators** | `AnimalAfrica.java`, `AnimalAmazonas.java`, `AnimalAsia.java`, `AnimalArtico.java` | Implementan el método de fábrica para producir un `Animal` específico de su zona. | **OCP:** Permite añadir nuevas zonas geográficas creando una nueva clase Factory sin modificar las existentes. |
+| **Client/Simple Factory** | `AnimalFactory.java` | Contiene el método estático que elige la Concrete Factory correcta. | Simplifica el acceso al Factory Method para el código cliente. |
+
+### 2. Patrón Strategy (Estrategia)
 
 Se utiliza para modelar el comportamiento cambiante de la alimentación según la dieta de cada animal.
 
@@ -28,7 +38,7 @@ Se utiliza para modelar el comportamiento cambiante de la alimentación según l
 | **Concrete Strategies** | `AlimentacionCarnivora`, `AlimentacionHerbivora`, `AlimentacionOmnivora` | Implementan el algoritmo de cálculo de raciones y tipo de comida. | **OCP:** Se pueden añadir nuevas dietas creando nuevas clases sin alterar el código existente. |
 | **Context** | `GestorAlimentacion.java` | Instancia y ejecuta la estrategia adecuada en tiempo de ejecución. | Su responsabilidad es gestionar la estrategia, no implementarla. |
 
-### 2. Patrón Singleton
+### 3. Patrón Singleton
 
 Garantiza que la clase de conexión tenga una única instancia.
 
@@ -39,10 +49,7 @@ Garantiza que la clase de conexión tenga una única instancia.
 ## 📐 Diagrama de Clases UML
 
 El diagrama completo se puede generar usando el código PlantUML proporcionado en la documentación adjunta, que muestra las relaciones de composición y dependencia de los patrones implementados.
-
-<img width="1323" height="573" alt="image" src="https://github.com/user-attachments/assets/5472df60-e3a2-4447-966d-d159e3c031ba" />
-
-## 📁 Estructura del Código
+<img width="4096" height="1347" alt="uml" src="https://github.com/user-attachments/assets/71cf1e55-017f-415f-9425-37a9cf7b1983" />
 
 ## 🚀 Instalación y Configuración
 
@@ -78,6 +85,6 @@ Ejecuta el siguiente script completo (`Zoo.sql`) en tu cliente MySQL para crear 
 * **Reporte de Alimentación (Patrón Strategy):** El sistema genera automáticamente el plan de alimentación (tipo de comida, cantidad, frecuencia) para cada animal, instanciando la estrategia específica basada en la dieta del animal (`GestorAlimentacion.crearPara(animal)`).
 
 ## 🧑‍💻 Autores
-* **Materia:** Modelos de Programación
-* Juan David Mayorga Lopez
-* Mariam Betin Escobar -20232020300
+* **Modelos de Programación**
+* Juan David Mayorga Lopez - 20232020116
+* Mariam Betin Escobar - 20232020300
